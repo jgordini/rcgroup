@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import { ref, onMounted, onUnmounted } from 'vue'
+import { BellIcon } from '@heroicons/vue/24/outline'
 import {
     Dialog,
     DialogPanel,
@@ -58,7 +59,7 @@ defineProps({
 </script>
 
 <template>
-    <header :class="['bg-transparent sticky top-0 z-50 transition-colors', isScrolled ? 'bg-emerald-200' : '']">
+    <header :class="['bg-transparent sticky top-0 z-50 transition-colors', isScrolled ? 'bg-emerald-600' : '']">
         <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5">
@@ -188,12 +189,23 @@ defineProps({
             </DialogPanel>
         </Dialog>
     </header>
+    <div class="flex min-h-full flex-col">
+
+        <div class="mx-auto flex w-full max-w-7xl items-start gap-x-8 px-4 py-10 sm:px-6 lg:px-8">
+            <aside class="sticky top-8 hidden w-44 shrink-0 lg:block">
+                <!-- Left column area -->
+            </aside>
+
+            <main class="flex-1">
+                <!-- Main area -->
+            </main>
+
+            <aside class="sticky top-8 hidden w-96 shrink-0 xl:block">
+                <!-- Right column area -->
+            </aside>
+        </div>
+    </div>
 </template>
   
-<style>
-body {
-    background-color: #007bff;
-    /* Light Blue */
-}
-</style>
+  
   
