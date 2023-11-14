@@ -1,18 +1,11 @@
-<template>
-    <header :class="['bg-transparent sticky top-0 z-50 transition-colors', isScrolled ? 'bg-indigo-400' : '']">
-      <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <Logo />
-        <MenuButton @click="toggleMobileMenu" />
-        <PopoverMenu :products="products" :callsToAction="callsToAction" />
-        <AuthLinks :canLogin="canLogin" :canRegister="canRegister" />
-      </nav>
-      <MobileMenu :isOpen="mobileMenuOpen" @close="toggleMobileMenu" />
-    </header>
-  </template>
-  
   <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import { ref, onMounted, onUnmounted } from 'vue'
+import AuthLinks from '@components/AuthLinks.vue';
+import Logo from '@components/Logo.vue';
+import MenuButton from '@components/MenuButton.vue';
+import MobileMenu from '@components/MobileMenu.vue';
+import PopoverMenu from '@components/PopoverMenu.vue';
 import {
     Dialog,
     DialogPanel,
@@ -68,3 +61,15 @@ defineProps({
     phpVersion: String,
 });
 </script>
+<template>
+    <header :class="['bg-transparent sticky top-0 z-50 transition-colors', isScrolled ? 'bg-indigo-400' : '']">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <Logo />
+        <MenuButton @click="toggleMobileMenu" />
+        <PopoverMenu :products="products" :callsToAction="callsToAction" />
+        <AuthLinks :canLogin="canLogin" :canRegister="canRegister" />
+      </nav>
+      <MobileMenu :isOpen="mobileMenuOpen" @close="toggleMobileMenu" />
+    </header>
+  </template>
+  
